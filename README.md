@@ -3,12 +3,12 @@ Overview
 This repository contains various Python scripts designed for automation tasks. Each script is intended to simplify common processes or tasks by automating them using Python.
 
 ## Repository Structure
-py-exec: A script to run any file in this repo.
-find-the-variable: A script that helps finding unkown values in equations.
-miniIDM: An automation script for downloading videos from web.
-qrcode-generator: A script for generating QR codes.
-video-audio-merger: A script that merges video and audio files into a single output file.
-web2pdf: A script for converting web pages to PDF documents.
+  - py-exec: A script to run any file in this repo.
+  - find-the-variable: A script that helps finding unkown values in equations.
+  - miniIDM: An automation script for downloading videos from web.
+  - qrcode-generator: A script for generating QR codes.
+  - video-audio-merger: A script that merges video and audio files into a single output file.
+  - web2pdf: A script for converting web pages to PDF documents.
 <!--Getting Started
 
 Installation
