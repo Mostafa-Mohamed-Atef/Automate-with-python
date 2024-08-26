@@ -1,17 +1,18 @@
 import subprocess
 import os
-import json
 
 def load_files():
-    try:
-        with open('files.json', 'r') as file:
-            return json.load(file)
-    except FileNotFoundError:
-        print("Error: 'files.json' not found.")
-        return {}
-    except json.JSONDecodeError:
-        print("Error: 'files.json' is not a valid JSON file.")
-        return {}
+    result = {}
+    
+    for dirpath, dirnames, filenames in os.walk('/home/mostafa/programming/python/automate-with-python'):
+        for filename in filenames:
+            if filename.endswith('.py') and filename in ["main.py", "gui.py"]:
+                descriptive_name = os.path.basename(dirpath).replace("-", " ")
+                if "gui" in filename.lower():
+                    descriptive_name += " with GUI"
+                result[descriptive_name] = os.path.join(dirpath, filename)
+    
+    return result
 
 def get_user_choice(indexed_files):
     try:
@@ -32,7 +33,6 @@ def run_file(file_path):
         result = subprocess.run(["python3", file_path], cwd=directory)
         if result.returncode == 0:
             print("Execution successful!")
-            print(result.stdout)
         else:
             print("Execution failed!")
             print(result.stderr)
