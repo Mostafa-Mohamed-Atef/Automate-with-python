@@ -1,8 +1,8 @@
-Automating Scripts with Python
+## Automating Scripts with Python
 Overview
 This repository contains various Python scripts designed for automation tasks. Each script is intended to simplify common processes or tasks by automating them using Python.
 
-Repository Structure
+# Repository Structure
 py-exec: A script to run any file in this repo.
 find-the-variable: A script that helps finding unkown values in equations.
 miniIDM: An automation script for downloading videos from web.
