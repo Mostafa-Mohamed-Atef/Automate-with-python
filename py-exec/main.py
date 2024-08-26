@@ -1,10 +1,10 @@
 import subprocess
 import os
 
-def load_files():
+def load_files(repo_directory):
     result = {}
     
-    for dirpath, dirnames, filenames in os.walk('/home/mostafa/programming/python/automate-with-python'):
+    for dirpath, dirnames, filenames in os.walk(repo_directory):
         for filename in filenames:
             if filename.endswith('.py') and filename in ["main.py", "gui.py"]:
                 descriptive_name = os.path.basename(dirpath).replace("-", " ")
@@ -40,7 +40,9 @@ def run_file(file_path):
         print(f"Error: The file '{file_path}' does not exist.")
 
 def main():
-    files = load_files()
+    os.chdir('..')
+    repo_directory = os.getcwd()
+    files = load_files(repo_directory)
     if not files:
         return
 
