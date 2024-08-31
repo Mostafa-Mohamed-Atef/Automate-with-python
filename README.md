@@ -9,7 +9,7 @@ This repository contains various Python scripts designed for automation tasks. E
   - qrcode-generator: A script for generating QR codes.
   - video-audio-merger: A script that merges video and audio files into a single output file.
   - web2pdf: A script for converting web pages to PDF documents.
-  - QuickPaste: copying by only selecting text and pasting by mouse wheel (as linux but for windows)
+  - reading pencil: script that helps me while reading on websites by tracking words I've read
 <!--Getting Started
 
 Installation
