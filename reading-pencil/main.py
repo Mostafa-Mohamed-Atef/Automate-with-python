@@ -1,33 +1,47 @@
-from pynput import keyboard
-from pynput.keyboard import Key, Controller
-
-# Create a keyboard controller
-kb = Controller()
+import time
+import keyboard  # Using only the 'keyboard' library
 
 # Flag to track if we're currently selecting
 selecting = False
 
-def on_press(key):
+def on_press():
     global selecting
-    if key == Key.right and not selecting:
-        # Start selecting
-        selecting = True
-        kb.press(Key.ctrl)
-        kb.press(Key.shift)
-        kb.press(Key.right)
-        kb.release(Key.right)
-    elif key == Key.esc and selecting:
-        # Stop selecting
-        selecting = False
-        kb.release(Key.ctrl)
-        kb.release(Key.shift)
+    try:
+        if not selecting:  # Ensure we only press once
+            selecting = True
+            keyboard.press('ctrl')
+            time.sleep(0.1)
+            keyboard.press('shift')
+            time.sleep(0.1)
+            keyboard.press('right')
+            # time.sleep(0.1)
+            keyboard.release('right')
+            return
+    except Exception as e:
+        print(e)
 
-def on_release(key):
-    if key == Key.right and selecting:
-        # Continue selecting
-        kb.press(Key.right)
-        kb.release(Key.right)
+def on_release():
+    global selecting
+    try:
+        if selecting:  # Ensure we only release if selecting
+            # time.sleep(0.1)
+            keyboard.release('shift')
+            time.sleep(0.1)
+            keyboard.release('ctrl')
+            selecting = False
+            return
+    except Exception as e:
+        print(e)
 
-# Set up the listener
-with keyboard.Listener(on_press=on_press, on_release=on_release) as listener:
-    listener.join()
+def start_listening():
+    def on_key_event(event):
+        if event.event_type == 'down' and event.name == 'right':
+            on_press()
+        elif event.event_type == 'up' and event.name == 'right':
+            on_release()
+
+    print("Listening....")
+    keyboard.hook(on_key_event)
+    keyboard.wait('esc')
+
+start_listening()
