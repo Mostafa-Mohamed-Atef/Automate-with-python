@@ -1,25 +1,33 @@
 from pynput import keyboard
+from pynput.keyboard import Key, Controller
 
-keyboard_controller = keyboard.Controller()
+# Create a keyboard controller
+kb = Controller()
 
+# Flag to track if we're currently selecting
+selecting = False
 
-def track(key):
-    if key == keyboard.Key.right:
-        try:
-            with keyboard_controller.ctrl_pressed(keyboard.Key.ctrl):
-                keyboard_controller.press(keyboard.Key.shift)
-                keyboard_controller.press(keyboard.Key.right)
-                # keyboard_controller.release(keyboard.Key.ctrl)
-                # keyboard_controller.release(keyboard.Key.shift)
-                keyboard_controller.release(keyboard.Key.right)
-        except Exception as e:
-            print(e)
-    if key == keyboard.Key.esc:
-        # Stop listener
-        return False
+def on_press(key):
+    global selecting
+    if key == Key.right and not selecting:
+        # Start selecting
+        selecting = True
+        kb.press(Key.ctrl)
+        kb.press(Key.shift)
+        kb.press(Key.right)
+        kb.release(Key.right)
+    elif key == Key.esc and selecting:
+        # Stop selecting
+        selecting = False
+        kb.release(Key.ctrl)
+        kb.release(Key.shift)
 
+def on_release(key):
+    if key == Key.right and selecting:
+        # Continue selecting
+        kb.press(Key.right)
+        kb.release(Key.right)
 
-with keyboard.Listener(on_release=track) as listener:
+# Set up the listener
+with keyboard.Listener(on_press=on_press, on_release=on_release) as listener:
     listener.join()
-
-# keyboard_controller.type("hello world")
