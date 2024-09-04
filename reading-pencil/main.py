@@ -1,35 +1,21 @@
-import time
 import keyboard  # Using only the 'keyboard' library
 
 # Flag to track if we're currently selecting
-selecting = False
 
 def on_press():
     global selecting
     try:
-        if not selecting:  # Ensure we only press once
-            selecting = True
             keyboard.press('ctrl')
-            time.sleep(0.1)
             keyboard.press('shift')
-            time.sleep(0.1)
-            keyboard.press('right')
-            # time.sleep(0.1)
-            keyboard.release('right')
-            return
+            keyboard.press('right')  # Combine press and release for 'right' key
     except Exception as e:
         print(e)
 
 def on_release():
-    global selecting
     try:
-        if selecting:  # Ensure we only release if selecting
-            # time.sleep(0.1)
+            keyboard.press('right')
             keyboard.release('shift')
-            time.sleep(0.1)
             keyboard.release('ctrl')
-            selecting = False
-            return
     except Exception as e:
         print(e)
 
@@ -39,6 +25,12 @@ def start_listening():
             on_press()
         elif event.event_type == 'up' and event.name == 'right':
             on_release()
+        elif event.name == 'esc':
+            return False
+        else:
+            keyboard.release('shift')
+            keyboard.release('ctrl')
+
 
     print("Listening....")
     keyboard.hook(on_key_event)
