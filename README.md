@@ -9,6 +9,7 @@ This repository contains various Python scripts designed for automation tasks. E
   - video-audio-merger: A script that merges video and audio files into a single output file.
   - web2pdf: A script for converting web pages to PDF documents.
   - reading pencil: script that helps me while reading on websites by tracking words I've read
+  - YT2MP3: script for downloading youtube music videos as mp3
 <!--Getting Started
 
 Installation
