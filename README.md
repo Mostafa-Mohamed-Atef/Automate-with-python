@@ -4,7 +4,7 @@ This repository contains various Python scripts designed for automation tasks. E
 
 ## Repository Structure
   - py-exec: A script to run any file in this repo.
-  - miniIDM: An automation script for downloading videos from web.
+  - miniIDM: An automation script for downloading videos from web. (STILL NOT DONE)
   - qrcode-generator: A script for generating QR codes.
   - video-audio-merger: A script that merges video and audio files into a single output file.
   - web2pdf: A script for converting web pages to PDF documents.
