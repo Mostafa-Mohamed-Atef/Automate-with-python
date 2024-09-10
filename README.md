@@ -11,6 +11,7 @@ This repository contains various Python scripts designed for automation tasks. E
   - reading pencil: script that helps me while reading on websites by tracking words I've read
   - YT2MP3: script for downloading youtube music videos as mp3
   - Screenshots folder manager: for deleting old screenshots 
+  - EGP2USD: for converting egyptian pounds to usd
 <!--Getting Started
 
 Installation
