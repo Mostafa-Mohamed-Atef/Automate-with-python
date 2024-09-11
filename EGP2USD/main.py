@@ -14,10 +14,16 @@ def get_currency():
 
 def convert_currency():
     try:
-        usd_amount = float(usd_entry.get())
+        amount = usd_entry.get()
         egp_rate = get_currency()
-        egp_amount = usd_amount * egp_rate
-        result_label.config(text=f"{usd_amount:,.2f} USD = {egp_amount:,.2f} EGP")
+        if amount.startswith("$"):
+            amount = float(amount[1:])
+            egp_amount = amount * egp_rate
+            result_label.config(text=f"{amount:,.2f} USD = {egp_amount:,.2f} EGP")
+        else:
+            amount = float(amount)
+            usd_amount = amount / egp_rate
+            result_label.config(text=f"{amount:,.2f} EGP = {usd_amount:,.2f} USD")
     except ValueError:
         result_label.config(text="Please enter a valid number")
 
@@ -42,7 +48,7 @@ title_label.pack(pady=20)
 usd_frame = ttk.Frame(root, style="TLabel")
 usd_frame.pack(pady=10)
 
-usd_label = ttk.Label(usd_frame, text="USD:")
+usd_label = ttk.Label(usd_frame)
 usd_label.pack(side="left", padx=5)
 
 usd_entry = ttk.Entry(usd_frame, width=15)
