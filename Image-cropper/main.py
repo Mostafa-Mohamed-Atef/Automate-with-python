@@ -1,4 +1,5 @@
 from PIL import Image
+import matplotlib.pyplot as plt
 original_image = Image.open("my_image.jpeg")
 import numpy as np
 image_array = np.array(original_image)
