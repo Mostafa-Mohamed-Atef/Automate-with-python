@@ -16,6 +16,8 @@ This repository contains various Python scripts designed for automation tasks. E
   - Git pull warning: for reminding me to pull before pushing (not done yet)
   - datacamp-ex-solver: for solving datacamp exercise (not done yet)
   - image-cropper: for cropping images (not done yet)
+  - clipboard-manager: for managing clipboard history (not done yet)
+  - screen-recorder: for recording the screen (not done yet)
 <!--Getting Started
 
 Installation
