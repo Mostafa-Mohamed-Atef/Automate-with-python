@@ -1,7 +1,7 @@
 from PyPDF2 import PdfMerger
 import os 
 
-path = "/home/mostafa/Downloads/DataCamp Materials/Ai/Hugging Face"
+path = input("Enter Path: \n")
 pdf_list = []
 for file in os.listdir(path):
     if file.endswith(".pdf"):
