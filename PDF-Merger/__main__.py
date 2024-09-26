@@ -17,9 +17,10 @@ print(pdf_list)
 merger = PdfMerger()
 for pdf in pdf_list:
     merger.append(pdf)
-output_file = os.path.join(path, "Merged.pdf")
+dir_name = os.path.basename(path)
+output_file = os.path.join(path, f"{dir_name}.pdf")
 
 merger.write(output_file)
 merger.close()
-print("Merged.pdf is created")
+print(f"{dir_name}.pdf is created")
 
