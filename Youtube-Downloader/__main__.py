@@ -6,14 +6,12 @@ def download():
     global progress_bar
     try:
        #yd = yt.streams.get_highest_resolution()
-       video_stream = yt.streams.filter(adaptive=True, file_extension='mp4', res="1080p").order_by('resolution').desc().first()
-       audio_stream = yt.streams.filter(adaptive=True, file_extension='mp4', only_audio=True).order_by('abr').desc().first()
+      #  video_stream = yt.streams.filter(adaptive=True, file_extension='mp4', res="1080p").order_by('resolution').desc().first()
+       video_stream = yt.streams.filter(progressive=False, res='1080p', type="video").first()
        print(yt.title)
        print(video_stream)
-    #    x = input("which stream \n")
        progress_bar = tqdm(total=video_stream.filesize, unit='0', unit_scale=True, desc="Downloading")
        video_stream.download(path)
-       audio_stream.download(path, filename='audio.mp4')
        progress_bar.close()
        print('completed')
     except Exception as e:

@@ -1,6 +1,5 @@
 import ttkbootstrap as ttk
 from tkinter import messagebox
-from sympy import *
 
 def calculate():
     try:
