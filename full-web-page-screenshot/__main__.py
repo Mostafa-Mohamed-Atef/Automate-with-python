@@ -12,7 +12,7 @@ def get_scroll_dimension(axis):
     return DRIVER.execute_script(f"return document.body.parentNode.scroll{axis}")
 
 def screenshot():
-    date_time = datetime.date.today().strftime("%Y-%m-%d")
+    date_time = datetime.date.today().strftime("%Y-%m-%d_%H-%M-%S")
     file_name = os.path.join(PATH, f'Web Screenshot from {date_time}.png')
     width = get_scroll_dimension("Width")
     height = get_scroll_dimension("Height")
