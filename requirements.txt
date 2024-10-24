@@ -3,3 +3,4 @@ pycodestyle
 pillow
 numpy
 moviepy
+selenium

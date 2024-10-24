@@ -23,4 +23,3 @@ output_file = os.path.join(path, f"{dir_name}.pdf")
 merger.write(output_file)
 merger.close()
 print(f"{dir_name}.pdf is created")
-
