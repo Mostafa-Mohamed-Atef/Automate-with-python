@@ -2,10 +2,11 @@ import time
 import os 
 import datetime
 from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.common.by import By
-
-DRIVER = webdriver.Firefox()
+options = Options()
+options.add_argument("--headless")  # Run in headless mode
+DRIVER = webdriver.Firefox(options=options) 
 PATH = "/home/mostafa/Pictures/Screenshots"
 
 def get_scroll_dimension(axis):
@@ -22,7 +23,7 @@ def screenshot():
     full_body_element = DRIVER.find_element(By.TAG_NAME, "body")
 
     full_body_element.screenshot(file_name)
-
+    print("Done")
     DRIVER.quit()
 
 if __name__ == "__main__":
