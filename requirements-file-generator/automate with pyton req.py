@@ -6,9 +6,14 @@ from importlib.metadata import packages_distributions
 def find_python_files(directory):
     """Recursively find all .py files in the given directory."""
     python_files = []
-    for file in os.listdir(directory):
-        if file.endswith(".py"):
-            python_files.append(os.path.join(directory, file))
+    for folder in os.listdir(directory):
+            try:
+                file_path = os.path.join(directory, folder)
+                for file in os.listdir(folder):
+                    if file.endswith(".py"):
+                        python_files.append(os.path.join(file_path, file))
+            except:
+                continue
     return python_files
 
 def extract_libraries(file_path):
@@ -38,5 +43,4 @@ def generate_requirements(directory, output_file):
     print(f"Requirements written to {output_file}")
 
 # Prompt user for directory path and generate requirements file
-directory = input("Enter dir path:\n")
-generate_requirements(directory, os.path.join(directory, "requirements.txt"))
+generate_requirements(".", "requirements.txt")
