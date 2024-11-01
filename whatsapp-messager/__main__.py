@@ -5,7 +5,8 @@ import time
 
 tomorrow = datetime.now() + timedelta(days=1)
 
-TOMORROW_DATE = datetime.now().strftime("%m-%d")
+TOMORROW_DATE = tomorrow.strftime("%m-%d")
+print(TOMORROW_DATE)
 with open("whatsapp-messager/contact.json") as file:
     contact = json.load(file)
 
