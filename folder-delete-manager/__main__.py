@@ -3,7 +3,7 @@ import datetime
 from datetime import timedelta
 import json
 
-with open('Screenshots folder manager/config.json', 'r') as config_file:
+with open('folder-delete-manager/config.json', 'r') as config_file:
     config = json.load(config_file)
 
 ss_dir = config['screenshots_dir']
