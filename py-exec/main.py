@@ -6,7 +6,7 @@ def load_files(repo_directory):
     
     for dirpath, dirnames, filenames in os.walk(repo_directory):
         for filename in filenames:
-            if filename.endswith('.py') and filename in ["main.py", "gui.py"]:
+            if filename.endswith('.py') and filename in ["__main__.py", "gui.py"]:
                 descriptive_name = os.path.basename(dirpath).replace("-", " ")
                 if "gui" in filename.lower():
                     descriptive_name += " with GUI"
