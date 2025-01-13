@@ -1,4 +1,3 @@
-PIL
 PyPDF2
 asyncio
 aukey
@@ -17,6 +16,8 @@ pafy
 pathlib
 pdf2image
 pdfkit
+pillow
+pyaudio
 pycodestyle
 pyperclip
 pyshorteners

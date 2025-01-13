@@ -4,7 +4,7 @@ import numpy as np
 # Parameters
 SAMPLE_RATE = 44100  # 44.1 kHz sample rate
 FRAMES_PER_BUFFER = 1024
-BOOST_FACTOR = 2.0  # 200% volume
+BOOST_FACTOR = 1.0  # 200% volume
 
 
 def process_audio(input_data, boost_factor):
