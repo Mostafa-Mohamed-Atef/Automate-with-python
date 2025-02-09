@@ -8,6 +8,7 @@ numpy==2.2.2
 opencv_python==4.10.0.84
 pafy==0.5.5
 pdfkit==1.0.0
+pdfplumber==0.11.5
 pedalboard==0.9.16
 Pillow==11.1.0
 PyAutoGUI==0.9.54
@@ -21,7 +22,7 @@ pywhatkit==5.4
 qrcode==8.0
 Requests==2.32.3
 selenium==4.28.1
-shazamio==0.7.0
+shazamio==0.8.0
 soundfile==0.13.0
 tqdm==4.67.1
 ttkbootstrap==1.10.1
